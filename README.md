@@ -18,7 +18,8 @@ It automatically indexes your browser history, routes user queries intelligently
   <br />
 
   <h3>💬 AI Chatbot Assistant ("SEARCH THE WAY YOU LIKE")</h3>
-  <img width="1916" height="1078" alt="Screenshot 2026-07-26 111354" src="https://github.com/user-attachments/assets/100824a0-7687-43b6-8fae-f24a7586b5b1" />
+  <img width="1908" height="1032" alt="Screenshot 2026-07-26 220750" src="https://github.com/user-attachments/assets/64d95a70-2478-49d8-b187-e2fc4bc76a84" />
+
 
   <p><i>Natural language query router searching your browser history using PostgreSQL SQL & ChromaDB Vector RAG.</i></p>
 </div>
