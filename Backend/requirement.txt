@@ -1,0 +1,12 @@
+fastapi
+uvicorn 
+sqlalchemy 
+psycopg2-binary 
+python-dotenv
+sqlite3
+shutil
+os
+langchain
+langchain-community
+chromadb
+langchain-google-genai
