@@ -24,7 +24,7 @@ It automatically indexes your browser history, routes user queries intelligently
   <p><i>Natural language query router searching your browser history using PostgreSQL SQL & ChromaDB Vector RAG.</i></p>
 </div>
 
-> 💡 **Note**: Save your updated screenshots in an `assets/` folder in the root directory named `analytics-dashboard.png` and `ai-chatbot.png`.
+
 
 ---
 
