@@ -10,7 +10,8 @@ It automatically indexes your browser history, routes user queries intelligently
 
 <div align="center">
   <h3>📊 Analytics Dashboard</h3>
-  <img width="1917" height="806" alt="Screenshot 2026-07-26 105848 - Copy" src="https://github.com/user-attachments/assets/cff1daa2-e2e5-4580-92d5-5f24ebe59814" />
+  <img width="1917" height="1078" alt="Screenshot 2026-07-26 105857" src="https://github.com/user-attachments/assets/4ea33cbf-8391-4dcf-9f7b-2f627ddd4b68" />
+
 
   <p><i>Real-time metrics, Top Visited Websites bar chart, Search Categories pie chart, Hourly Heatmap, Streaks & AI Insights.</i></p>
 
