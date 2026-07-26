@@ -11,16 +11,16 @@ It automatically indexes your browser history, routes user queries intelligently
 <div align="center">
   <h3>📊 Analytics Dashboard</h3>
   <img src="./assets/analytics-dashboard.png" alt="Analytics Dashboard" width="100%" />
-  <p><i>Real-time metrics, Top Websites bar chart, Search Categories pie chart, Hourly Heatmap, Streaks & AI Insights.</i></p>
+  <p><i>Real-time metrics, Top Visited Websites bar chart, Search Categories pie chart, Hourly Heatmap, Streaks & AI Insights.</i></p>
 
   <br />
 
-  <h3>💬 AI Chat Assistant (RAG Search)</h3>
+  <h3>💬 AI Chatbot Assistant ("SEARCH THE WAY YOU LIKE")</h3>
   <img src="./assets/ai-chatbot.png" alt="AI Chatbot Assistant" width="100%" />
   <p><i>Natural language query router searching your browser history using PostgreSQL SQL & ChromaDB Vector RAG.</i></p>
 </div>
 
-> 💡 **Note**: Save your screenshots inside an `assets/` folder in the root directory named `analytics-dashboard.png` and `ai-chatbot.png`.
+> 💡 **Note**: Save your updated screenshots in an `assets/` folder in the root directory named `analytics-dashboard.png` and `ai-chatbot.png`.
 
 ---
 
