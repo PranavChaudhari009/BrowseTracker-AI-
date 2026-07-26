@@ -10,13 +10,15 @@ It automatically indexes your browser history, routes user queries intelligently
 
 <div align="center">
   <h3>📊 Analytics Dashboard</h3>
-  <img src="./assets/analytics-dashboard.png" alt="Analytics Dashboard" width="100%" />
+  <img width="1917" height="806" alt="Screenshot 2026-07-26 105848 - Copy" src="https://github.com/user-attachments/assets/cff1daa2-e2e5-4580-92d5-5f24ebe59814" />
+
   <p><i>Real-time metrics, Top Visited Websites bar chart, Search Categories pie chart, Hourly Heatmap, Streaks & AI Insights.</i></p>
 
   <br />
 
   <h3>💬 AI Chatbot Assistant ("SEARCH THE WAY YOU LIKE")</h3>
-  <img src="./assets/ai-chatbot.png" alt="AI Chatbot Assistant" width="100%" />
+  <img width="1916" height="1078" alt="Screenshot 2026-07-26 111354" src="https://github.com/user-attachments/assets/100824a0-7687-43b6-8fae-f24a7586b5b1" />
+
   <p><i>Natural language query router searching your browser history using PostgreSQL SQL & ChromaDB Vector RAG.</i></p>
 </div>
 
