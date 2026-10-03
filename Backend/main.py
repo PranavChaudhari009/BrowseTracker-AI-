@@ -79,7 +79,7 @@ client = genai.Client(api_key=api_key)
 )
 def extract_filters_with_retry(prompt: str):
     return client.models.generate_content(
-        model="models/gemini-3.5-flash-lite",
+        model="gemini-3.5-flash-lite",
         contents=prompt,
         config={
             "response_mime_type": "application/json",
@@ -94,7 +94,7 @@ def extract_filters_with_retry(prompt: str):
 )
 def summarize_with_retry(prompt: str):
     return client.models.generate_content(
-        model="models/gemini-3.5-flash-lite",
+        model="gemini-3.5-flash-lite",
         contents=prompt,
     )
 

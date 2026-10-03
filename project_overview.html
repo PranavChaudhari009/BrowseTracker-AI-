@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BrowseTracker-AI — Complete System Documentation & Future Features Roadmap</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              400: '#818cf8',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              900: '#312e81',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Mermaid.js for Diagrams -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .glass-card {
+      background: rgba(24, 24, 27, 0.7);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(63, 63, 70, 0.4);
+    }
+    .mermaid {
+      display: flex;
+      justify-content: center;
+      background: rgba(15, 23, 42, 0.5);
+      padding: 1.5rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(51, 65, 85, 0.5);
+    }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #18181b; }
+    ::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #52525b; }
+  </style>
+</head>
+<body class="bg-zinc-950 text-zinc-100 min-h-screen selection:bg-indigo-500 selection:text-white transition-colors duration-200">
+
+  <!-- Header / Navigation -->
+  <header class="sticky top-0 z-50 bg-zinc-900/90 backdrop-blur-md border-b border-zinc-800 px-6 py-4 flex items-center justify-between shadow-lg">
+    <div class="flex items-center gap-3">
+      <div class="p-2.5 bg-gradient-to-tr from-indigo-600 to-violet-500 text-white rounded-xl font-black text-sm tracking-wider shadow-indigo-500/20 shadow-lg flex items-center justify-center">
+        AI
+      </div>
+      <div>
+        <h1 class="font-extrabold text-lg tracking-tight text-white flex items-center gap-2">
+          BrowseTracker-AI
+          <span class="text-xs px-2.5 py-0.5 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/30 font-semibold">
+            Master Spec v2.1
+          </span>
+        </h1>
+        <p class="text-xs text-zinc-400">Complete Architecture, Flowcharts, Current Build & Future Features Roadmap</p>
+      </div>
+    </div>
+
+    <!-- Quick Navigation Links -->
+    <nav class="hidden md:flex items-center gap-5 text-xs font-semibold text-zinc-400">
+      <a href="#overview" class="hover:text-indigo-400 transition-colors">Overview</a>
+      <a href="#architecture" class="hover:text-indigo-400 transition-colors">Architecture</a>
+      <a href="#flowcharts" class="hover:text-indigo-400 transition-colors">Flowcharts</a>
+      <a href="#current-status" class="hover:text-indigo-400 transition-colors">What's Built</a>
+      <a href="#structure" class="hover:text-indigo-400 transition-colors">Code Structure</a>
+      <a href="#future-features" class="hover:text-amber-400 transition-colors font-bold">Future Features</a>
+      <a href="#execution" class="hover:text-indigo-400 transition-colors">Execution Strategy</a>
+    </nav>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16">
+
+    <!-- HERO SECTION -->
+    <section id="overview" class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-zinc-900 via-indigo-950/40 to-zinc-900 border border-zinc-800 p-8 sm:p-12 shadow-2xl">
+      <div class="absolute -top-24 -right-24 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="relative z-10 space-y-6 max-w-4xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-300 text-xs font-semibold border border-indigo-500/20">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Comprehensive System Spec & Master Roadmap
+        </div>
+        <h2 class="text-4xl sm:text-5xl font-black tracking-tight text-white leading-tight">
+          BrowseTracker-AI: <span class="bg-gradient-to-r from-indigo-400 via-violet-300 to-pink-400 bg-clip-text text-transparent">Present Specs, Email Digest & Future Roadmap</span>
+        </h2>
+        <p class="text-zinc-300 text-base sm:text-lg leading-relaxed">
+          BrowseTracker-AI transforms browser activity logs into an interactive AI knowledge graph. This document details our existing architecture, system flowcharts, database designs, codebase structure, and an exhaustive breakdown of all planned future features including Automated Email Weekly Digests.
+        </p>
+
+        <!-- Key Stats Pills -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
+          <div class="p-4 rounded-2xl bg-zinc-900/80 border border-zinc-800/80">
+            <div class="text-xs text-zinc-400 font-medium">Dual Search Engine</div>
+            <div class="text-lg font-bold text-indigo-400 mt-1">Exact SQL + RAG Vector</div>
+          </div>
+          <div class="p-4 rounded-2xl bg-zinc-900/80 border border-zinc-800/80">
+            <div class="text-xs text-zinc-400 font-medium">AI Query Router</div>
+            <div class="text-lg font-bold text-violet-400 mt-1">Gemini 3.5 Flash</div>
+          </div>
+          <div class="p-4 rounded-2xl bg-zinc-900/80 border border-zinc-800/80">
+            <div class="text-xs text-zinc-400 font-medium">Email Digest</div>
+            <div class="text-lg font-bold text-pink-400 mt-1">Weekly AI Report</div>
+          </div>
+          <div class="p-4 rounded-2xl bg-zinc-900/80 border border-zinc-800/80">
+            <div class="text-xs text-zinc-400 font-medium">Future Roadmap</div>
+            <div class="text-lg font-bold text-amber-400 mt-1">11 Major Feature Pillars</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SYSTEM ARCHITECTURE -->
+    <section id="architecture" class="space-y-6">
+      <div class="flex items-center gap-3 border-b border-zinc-800 pb-4">
+        <div class="p-2 bg-indigo-500/10 text-indigo-400 rounded-lg">
+          <i data-lucide="layers" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <h3 class="text-2xl font-bold text-white">1. System Architecture</h3>
+          <p class="text-xs text-zinc-400">High-level components, data pipelines, and third-party integrations</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Data Ingestion -->
+        <div class="glass-card rounded-2xl p-6 space-y-4">
+          <div class="flex items-center gap-3 text-indigo-400">
+            <i data-lucide="database" class="w-5 h-5"></i>
+            <h4 class="font-bold text-white">Data Ingestion Layer</h4>
+          </div>
+          <ul class="space-y-2.5 text-xs text-zinc-300">
+            <li class="flex items-start gap-2">
+              <span class="text-indigo-400 font-bold">•</span>
+              <span><strong>Chrome History Copying:</strong> Reads local Chrome SQLite file safely into <code>History_copy</code> to avoid lock errors.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-indigo-400 font-bold">•</span>
+              <span><strong>URL Parsing & Cleaning:</strong> Extracts standard domain netlocs and Google Search queries (e.g. <code>q=...</code>).</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-indigo-400 font-bold">•</span>
+              <span><strong>Chrome Timestamp Conversion:</strong> Translates microsecond epoch timestamps starting from 1601-01-01 into standard <code>datetime</code> objects.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-indigo-400 font-bold">•</span>
+              <span><strong>Relational DB Storage:</strong> Persists records into PostgreSQL/SQLite via SQLAlchemy ORM (<code>BrowserHistory</code> model).</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- AI & Router Engine -->
+        <div class="glass-card rounded-2xl p-6 space-y-4">
+          <div class="flex items-center gap-3 text-violet-400">
+            <i data-lucide="cpu" class="w-5 h-5"></i>
+            <h4 class="font-bold text-white">AI Routing & RAG Layer</h4>
+          </div>
+          <ul class="space-y-2.5 text-xs text-zinc-300">
+            <li class="flex items-start gap-2">
+              <span class="text-violet-400 font-bold">•</span>
+              <span><strong>Structured Router:</strong> Gemini 3.5 Flash Lite parses queries with Pydantic schemas into exact vs semantic search mode.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-violet-400 font-bold">•</span>
+              <span><strong>ChromaDB Vector Store:</strong> Converts SQL history into LangChain Document objects stored in <code>Brower_history</code> collection.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-violet-400 font-bold">•</span>
+              <span><strong>HuggingFace Embeddings:</strong> <code>all-MiniLM-L6-v2</code> generates 384-dimensional dense vectors for semantic context.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-violet-400 font-bold">•</span>
+              <span><strong>LangChain RAG Chain:</strong> Links similarity retriever, custom prompt, and Gemini LLM for conversational answers.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Analytics & Frontend -->
+        <div class="glass-card rounded-2xl p-6 space-y-4">
+          <div class="flex items-center gap-3 text-emerald-400">
+            <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
+            <h4 class="font-bold text-white">Analytics & Presentation Layer</h4>
+          </div>
+          <ul class="space-y-2.5 text-xs text-zinc-300">
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-400 font-bold">•</span>
+              <span><strong>FastAPI Analytics Endpoints:</strong> Exposes 6 REST routes for overview metrics, top domains, category distribution, streak, hourly activity, & insights.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-400 font-bold">•</span>
+              <span><strong>React 18 Dashboard:</strong> Built with Vite, Tailwind CSS, Lucide icons, and Recharts for horizontal bar charts, donut charts, and heatmaps.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-400 font-bold">•</span>
+              <span><strong>Interactive Chat Interface:</strong> Tabbed navigation with live route badge indicators ("semantic" / "exact") and quick prompt triggers.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-400 font-bold">•</span>
+              <span><strong>Theme Persistence:</strong> Dark & light theme toggle synced to document HTML root class.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- FLOWCHARTS & DIAGRAMS -->
+    <section id="flowcharts" class="space-y-8">
+      <div class="flex items-center gap-3 border-b border-zinc-800 pb-4">
+        <div class="p-2 bg-violet-500/10 text-violet-400 rounded-lg">
+          <i data-lucide="git-fork" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <h3 class="text-2xl font-bold text-white">2. System Flowcharts & Visual Models</h3>
+          <p class="text-xs text-zinc-400">Interactive diagrams powered by Mermaid.js illustrating data flow, hybrid routing, and vector synchronization</p>
+        </div>
+      </div>
+
+      <!-- Diagram 1: Complete System Data Flowchart -->
+      <div class="glass-card rounded-2xl p-6 space-y-4">
+        <h4 class="font-bold text-lg text-indigo-300 flex items-center gap-2">
+          <i data-lucide="workflow" class="w-5 h-5"></i> A. End-to-End System & Ingestion Flowchart
+        </h4>
+        <div class="mermaid">
+          flowchart TD
+            subgraph Data_Source ["Chrome Browser Storage"]
+              ChromeDB["Chrome SQLite File<br/>(User Data/Default/History)"]
+            end
+
+            subgraph ETL_Pipeline ["ETL & Processing Engine"]
+              Copy["history_reader.py<br/>Copy to History_copy"]
+              Extract["utils.py<br/>Extract Domain & Query"]
+              CatService["services/category_service.py<br/>Domain Rule Categorizer"]
+              SaveEngine["save_history.py<br/>Save to SQL Database"]
+            end
+
+            subgraph Storage_Layer ["Data Persistence Layer"]
+              SQLDB[("SQL DB<br/>BrowserHistory Table")]
+              SyncVec["sync_vector.py<br/>Batch Sync (50 recs)"]
+              ChromaDB[("ChromaDB Vector Store<br/>Collection: Brower_history")]
+            end
+
+            ChromeDB --> Copy
+            Copy --> Extract
+            Extract --> CatService
+            CatService --> SaveEngine
+            SaveEngine --> SQLDB
+            SQLDB --> SyncVec
+            SyncVec --> ChromaDB
+        </div>
+      </div>
+
+      <!-- Diagram 2: Hybrid Query Router Flowchart -->
+      <div class="glass-card rounded-2xl p-6 space-y-4">
+        <h4 class="font-bold text-lg text-violet-300 flex items-center gap-2">
+          <i data-lucide="git-pull-request" class="w-5 h-5"></i> B. Intelligent Hybrid Router & Execution Flowchart
+        </h4>
+        <div class="mermaid">
+          flowchart LR
+            UserQuery["User Input Query<br/>('/api/chat')"] --> Router["Gemini 3.5 Flash Router<br/>(SearchFilters Schema)"]
+
+            Router -->|Decision: exact| ExactPath["Exact SQL Path"]
+            Router -->|Decision: semantic| SemanticPath["Semantic RAG Path"]
+
+            subgraph Exact_Branch ["Exact SQL Search"]
+              ExactPath --> SQLQuery["services/sql_service.py<br/>Date + Keyword ILIKE Query"]
+              SQLQuery --> SQLFetch["Fetch Records from SQL DB"]
+              SQLFetch --> Summarizer["Gemini Summarize Prompt"]
+            end
+
+            subgraph Semantic_Branch ["Semantic RAG Search"]
+              SemanticPath --> RAGChain["rag/chain.py<br/>LangChain Retriever (k=2)"]
+              RAGChain --> VectorSearch["ChromaDB Similarity Search<br/>all-MiniLM-L6-v2 Embeddings"]
+              VectorSearch --> LLMGen["ChatGoogleGenerativeAI<br/>Generate Contextual Answer"]
+            end
+
+            Summarizer --> FinalResponse["API JSON Response<br/>(response + router_decision)"]
+            LLMGen --> FinalResponse
+        </div>
+      </div>
+
+      <!-- Diagram 3: Database Entity-Relationship Diagram -->
+      <div class="glass-card rounded-2xl p-6 space-y-4">
+        <h4 class="font-bold text-lg text-emerald-300 flex items-center gap-2">
+          <i data-lucide="table" class="w-5 h-5"></i> C. Database Schema & Data Models
+        </h4>
+        <div class="mermaid">
+          erDiagram
+            BROWSER_HISTORY {
+                int id PK "Primary Key (Auto-Increment)"
+                string title "Page Title"
+                string domain "Indexed Netloc (e.g., github.com)"
+                string category "Categorization (AI, Dev, Entertainment...)"
+                string url "Full Visited URL"
+                string search_query "Extracted Search Query"
+                datetime visited_at "Converted Visit Timestamp"
+            }
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT WE HAVE MADE TILL NOW -->
+    <section id="current-status" class="space-y-6">
+      <div class="flex items-center gap-3 border-b border-zinc-800 pb-4">
+        <div class="p-2 bg-emerald-500/10 text-emerald-400 rounded-lg">
+          <i data-lucide="check-circle-2" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <h3 class="text-2xl font-bold text-white">3. What We Have Built Till Now (Current Implementation)</h3>
+          <p class="text-xs text-zinc-400">Detailed breakdown of existing modules, services, APIs, and components</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- Card 1: Backend Infrastructure -->
+        <div class="glass-card rounded-2xl p-6 space-y-3">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-base text-indigo-300 flex items-center gap-2">
+              <i data-lucide="server" class="w-4 h-4"></i> FastAPI Core & Service Architecture
+            </h4>
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300">COMPLETED</span>
+          </div>
+          <p class="text-xs text-zinc-300 leading-relaxed">
+            Engineered a modular FastAPI application equipped with CORS middleware for React connection, dependency-injected SQLAlchemy database sessions, Alembic migration scripts, environment management with <code>python-dotenv</code>, and <code>tenacity</code> exponential retry logic for LLM rate limits.
+          </p>
+          <div class="flex flex-wrap gap-1.5 pt-2">
+            <span class="text-[11px] px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 font-mono">FastAPI</span>
+            <span class="text-[11px] px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 font-mono">SQLAlchemy</span>
+            <span class="text-[11px] px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 font-mono">Alembic</span>
+            <span class="text-[11px] px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 font-mono">Tenacity</span>
+          </div>
+        </div>
+
+        <!-- Card 2: History Extraction Engine -->
+        <div class="glass-card rounded-2xl p-6 space-y-3">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-base text-indigo-300 flex items-center gap-2">
+              <i data-lucide="file-search" class="w-4 h-4"></i> Safe Chrome History Ingestion (ETL)
+            </h4>
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300">COMPLETED</span>
+          </div>
+          <p class="text-xs text-zinc-300 leading-relaxed">
+            Created <code>history_reader.py</code> and <code>save_history.py</code> to safely clone Chrome's SQLite database to prevent access locks, parse Chrome microsecond timestamps (epoch starting 1601-01-01), extract URL netlocs & query strings, and filter out duplicate URLs before persisting.
+          </p>
+          <div class="flex flex-wrap gap-1.5 pt-2">
+            <span class="text-[11px] px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 font-mono">SQLite3</span>
+            <span class="text-[11px] px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 font-mono">urllib.parse</span>
+            <span class="text-[11px] px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 font-mono">Chrome Timestamps</span>
+          </div>
+        </div>
+
+        <!-- Card 3: Categorization & Analytics Service -->
+        <div class="glass-card rounded-2xl p-6 space-y-3">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-base text-indigo-300 flex items-center gap-2">
+              <i data-lucide="pie-chart" class="w-4 h-4"></i> Domain Categorization & Analytics
+            </h4>
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300">COMPLETED</span>
+          </div>
+          <p class="text-xs text-zinc-300 leading-relaxed">
+            Implemented <code>category_service.py</code> to categorize websites into 8+ groups (AI, Development, Entertainment, Career, Shopping, Education, Productivity, Social, Search). Built <code>analytics_service.py</code> to aggregate total visits, unique domains, active days, search streaks, hourly activity distribution, and dynamic AI insights.
+          </p>
+          <div class="flex flex-wrap gap-1.5 pt-2">
+            <span class="text-[11px] px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 font-mono">Category Service</span>
+            <span class="text-[11px] px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 font-mono">Streak Logic</span>
+            <span class="text-[11px] px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 font-mono">Hourly Heatmap</span>
+          </div>
+        </div>
+
+        <!-- Card 4: RAG & Vector Pipeline -->
+        <div class="glass-card rounded-2xl p-6 space-y-3">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-base text-indigo-300 flex items-center gap-2">
+              <i data-lucide="brain-circuit" class="w-4 h-4"></i> RAG Vector Search Engine
+            </h4>
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300">COMPLETED</span>
+          </div>
+          <p class="text-xs text-zinc-300 leading-relaxed">
+            Constructed a complete RAG system inside <code>Backend/rag/</code> utilizing LangChain LCEL, HuggingFace <code>all-MiniLM-L6-v2</code> embeddings, ChromaDB vector storage in <code>.chroma_db</code>, rate-limited batch sync script <code>sync_vector.py</code> (batch size 50), and Gemini 3.5 Flash Lite context synthesis.
+          </p>
+          <div class="flex flex-wrap gap-1.5 pt-2">
+            <span class="text-[11px] px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 font-mono">LangChain</span>
+            <span class="text-[11px] px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 font-mono">ChromaDB</span>
+            <span class="text-[11px] px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 font-mono">HuggingFace</span>
+            <span class="text-[11px] px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 font-mono">Batch Sync</span>
+          </div>
+        </div>
+
+        <!-- Card 5: Hybrid Query Router -->
+        <div class="glass-card rounded-2xl p-6 space-y-3">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-base text-indigo-300 flex items-center gap-2">
+              <i data-lucide="route" class="w-4 h-4"></i> Gemini Structured Query Router
+            </h4>
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300">COMPLETED</span>
+          </div>
+          <p class="text-xs text-zinc-300 leading-relaxed">
+            Built an intelligent query classifier in <code>main.py</code> using Gemini 3.5 Flash Lite and Pydantic schema enforcing JSON output. Automatically routes specific keyword/date/URL queries to Exact SQL search and open-ended topic/concept queries to Semantic RAG search.
+          </p>
+          <div class="flex flex-wrap gap-1.5 pt-2">
+            <span class="text-[11px] px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 font-mono">Pydantic Schemas</span>
+            <span class="text-[11px] px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 font-mono">Gemini Router</span>
+            <span class="text-[11px] px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 font-mono">JSON Mode</span>
+          </div>
+        </div>
+
+        <!-- Card 6: React Frontend Dashboard & Chat UI -->
+        <div class="glass-card rounded-2xl p-6 space-y-3">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-base text-indigo-300 flex items-center gap-2">
+              <i data-lucide="layout-dashboard" class="w-4 h-4"></i> React Dashboard & AI Chat UI
+            </h4>
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300">COMPLETED</span>
+          </div>
+          <p class="text-xs text-zinc-300 leading-relaxed">
+            Developed a sleek, modern dark/light mode React dashboard featuring global tab switcher (Analytics vs AI Chat), Recharts domain bar charts & category pie charts, 24-hour hourly activity heatmaps, animated skeleton loaders, and interactive chat interface with decision badges.
+          </p>
+          <div class="flex flex-wrap gap-1.5 pt-2">
+            <span class="text-[11px] px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 font-mono">React 18</span>
+            <span class="text-[11px] px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 font-mono">Tailwind CSS</span>
+            <span class="text-[11px] px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 font-mono">Recharts</span>
+            <span class="text-[11px] px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 font-mono">Lucide Icons</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CODEBASE STRUCTURE -->
+    <section id="structure" class="space-y-6">
+      <div class="flex items-center gap-3 border-b border-zinc-800 pb-4">
+        <div class="p-2 bg-pink-500/10 text-pink-400 rounded-lg">
+          <i data-lucide="folder-tree" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <h3 class="text-2xl font-bold text-white">4. Project File & Directory Structure</h3>
+          <p class="text-xs text-zinc-400">Complete annotated mapping of existing codebase files</p>
+        </div>
+      </div>
+
+      <div class="glass-card rounded-2xl p-6 font-mono text-xs text-zinc-300 space-y-4 overflow-x-auto">
+        <div class="text-indigo-400 font-bold">c:\browser-tracker-AI\</div>
+        <div class="pl-4 space-y-2 border-l border-zinc-800">
+          <div>├── <span class="text-amber-300">Backend/</span></div>
+          <div class="pl-6 space-y-1 text-zinc-400">
+            <div>├── <span class="text-white font-semibold">main.py</span> <span class="text-zinc-500"># FastAPI application, CORS, /api/chat route & Gemini router</span></div>
+            <div>├── <span class="text-white font-semibold">database.py</span> <span class="text-zinc-500"># SQLAlchemy engine & SessionLocal dependency</span></div>
+            <div>├── <span class="text-white font-semibold">models.py</span> <span class="text-zinc-500"># BrowserHistory database table schema</span></div>
+            <div>├── <span class="text-white font-semibold">schemas.py</span> <span class="text-zinc-500"># Pydantic models for chat, filters, and analytics responses</span></div>
+            <div>├── <span class="text-white font-semibold">save_history.py</span> <span class="text-zinc-500"># ETL script loading Chrome history into SQL database</span></div>
+            <div>├── <span class="text-white font-semibold">history_reader.py</span> <span class="text-zinc-500"># Chrome SQLite file cloner and reader</span></div>
+            <div>├── <span class="text-white font-semibold">utils.py</span> <span class="text-zinc-500"># Timestamp converter, domain cleaner, query parser</span></div>
+            <div>├── <span class="text-amber-300">services/</span></div>
+            <div class="pl-6 space-y-1">
+              <div>├── <span class="text-white font-semibold">analytics_service.py</span> <span class="text-zinc-500"># Overview, top sites, category, streak & hourly calculations</span></div>
+              <div>├── <span class="text-white font-semibold">category_service.py</span> <span class="text-zinc-500"># Domain-to-category rule classifier</span></div>
+              <div>└── <span class="text-white font-semibold">sql_service.py</span> <span class="text-zinc-500"># Exact SQL filter execution engine</span></div>
+            </div>
+            <div>├── <span class="text-amber-300">rag/</span></div>
+            <div class="pl-6 space-y-1">
+              <div>├── <span class="text-white font-semibold">chain.py</span> <span class="text-zinc-500"># LangChain LCEL RAG execution chain</span></div>
+              <div>├── <span class="text-white font-semibold">document.py</span> <span class="text-zinc-500"># History record to LangChain Document transformer</span></div>
+              <div>├── <span class="text-white font-semibold">embedding.py</span> <span class="text-zinc-500"># HuggingFace all-MiniLM-L6-v2 embedding initialization</span></div>
+              <div>├── <span class="text-white font-semibold">prompt.py</span> <span class="text-zinc-500"># Custom prompt template for browser history QA</span></div>
+              <div>├── <span class="text-white font-semibold">retriever.py</span> <span class="text-zinc-500"># Similarity retriever configuration</span></div>
+              <div>├── <span class="text-white font-semibold">vector_store.py</span> <span class="text-zinc-500"># ChromaDB vector store initialization</span></div>
+              <div>└── <span class="text-white font-semibold">sync_vector.py</span> <span class="text-zinc-500"># SQL-to-ChromaDB batch embedding sync script</span></div>
+            </div>
+            <div>├── <span class="text-amber-300">router/</span></div>
+            <div class="pl-6 space-y-1">
+              <div>└── <span class="text-white font-semibold">analytics.py</span> <span class="text-zinc-500"># Analytics APIRouter with 6 REST endpoints</span></div>
+            </div>
+          </div>
+
+          <div>├── <span class="text-amber-300">Frontend/</span></div>
+          <div class="pl-6 space-y-1 text-zinc-400">
+            <div>├── <span class="text-white font-semibold">src/App.jsx</span> <span class="text-zinc-500"># Main layout, tab navigation, and dark theme state</span></div>
+            <div>├── <span class="text-amber-300">src/components/</span></div>
+            <div class="pl-6 space-y-1">
+              <div>├── <span class="text-white font-semibold">AnalyticsPage.jsx</span> <span class="text-zinc-500"># Dashboard container fetching 6 analytics APIs simultaneously</span></div>
+              <div>├── <span class="text-white font-semibold">ChatBox.jsx</span> <span class="text-zinc-500"># AI Conversational interface with route badges & quick prompts</span></div>
+              <div>├── <span class="text-white font-semibold">StatCard.jsx</span> <span class="text-zinc-500"># Metric display card with icon highlights</span></div>
+              <div>├── <span class="text-white font-semibold">TopWebsitesChart.jsx</span> <span class="text-zinc-500"># Recharts horizontal bar chart for domains</span></div>
+              <div>├── <span class="text-white font-semibold">CategoriesChart.jsx</span> <span class="text-zinc-500"># Recharts pie/donut chart for content breakdown</span></div>
+              <div>├── <span class="text-white font-semibold">HourlyHeatmap.jsx</span> <span class="text-zinc-500"># 24-hour visual activity heat bar</span></div>
+              <div>├── <span class="text-white font-semibold">StreakCard.jsx</span> <span class="text-zinc-500"># Active search streak counter</span></div>
+              <div>├── <span class="text-white font-semibold">AiInsightsCard.jsx</span> <span class="text-zinc-500"># AI-generated insight bullet points</span></div>
+              <div>└── <span class="text-white font-semibold">SkeletonLoader.jsx</span> <span class="text-zinc-500"># Loading placeholders during data fetch</span></div>
+            </div>
+            <div>└── <span class="text-amber-300">src/services/</span></div>
+            <div class="pl-6 space-y-1">
+              <div>├── <span class="text-white font-semibold">analyticsApi.js</span> <span class="text-zinc-500"># Axios service wrapper for analytics routes</span></div>
+              <div>└── <span class="text-white font-semibold">api.js</span> <span class="text-zinc-500"># Axios wrapper for chatbot route</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FUTURE ROADMAP: ALL FEATURES TO BE ADDED IN FUTURE VERSIONS -->
+    <section id="future-features" class="space-y-8">
+      <div class="flex items-center gap-3 border-b border-zinc-800 pb-4">
+        <div class="p-2 bg-amber-500/10 text-amber-400 rounded-lg">
+          <i data-lucide="rocket" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <h3 class="text-2xl font-bold text-white">5. Complete Roadmap: All Features To Be Added in Future Versions</h3>
+          <p class="text-xs text-zinc-400">Exhaustive list of upcoming capabilities across 11 core feature pillars including Email Weekly Digest</p>
+        </div>
+      </div>
+
+      <!-- Feature Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Special Pillar: EMAIL WEEKLY DIGEST -->
+        <div class="glass-card rounded-2xl p-6 space-y-4 border-l-4 border-l-pink-500 hover:border-l-pink-400 transition-all bg-gradient-to-br from-pink-950/20 to-zinc-900">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-pink-400 uppercase tracking-wider">v1.4 Feature</span>
+            <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-pink-500/20 text-pink-300 font-bold border border-pink-500/30">HIGHLIGHT: EMAIL DIGEST</span>
+          </div>
+          <h4 class="font-bold text-base text-white flex items-center gap-2">
+            <i data-lucide="mail" class="w-5 h-5 text-pink-400"></i> Automated Email Weekly Digest
+          </h4>
+          <p class="text-xs text-zinc-300 leading-relaxed">
+            Scheduled background cron job (APScheduler / Celery) that automatically generates and sends a beautiful HTML weekly productivity & AI summary report to the user's email every Sunday evening.
+          </p>
+          <ul class="text-[11px] text-zinc-400 space-y-1.5 list-disc pl-4">
+            <li><strong>Weekly Browsing Summary:</strong> Top 5 visited websites, total active browsing hours, and category breakdown pie chart inline in HTML email.</li>
+            <li><strong>AI Learnings & Highlights:</strong> Gemini-generated bullet points summarizing topics, research papers, and technical concepts learned during the week.</li>
+            <li><strong>Productivity Trend & Streak:</strong> Highlights weekly productivity score changes and active search streak status.</li>
+            <li><strong>Email Integrations:</strong> Supports standard SMTP, SendGrid, Amazon SES, and Resend API integrations.</li>
+          </ul>
+        </div>
+
+        <!-- Pillar 1 -->
+        <div class="glass-card rounded-2xl p-6 space-y-4 border-l-4 border-l-indigo-500 hover:border-l-indigo-400 transition-all">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider">v1.1 Release</span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-semibold">Extension</span>
+          </div>
+          <h4 class="font-bold text-base text-white flex items-center gap-2">
+            <i data-lucide="chrome" class="w-4 h-4 text-indigo-400"></i> 1. Real-Time Chrome Web Extension
+          </h4>
+          <p class="text-xs text-zinc-300 leading-relaxed">
+            Eliminate file copying by deploying a Manifest v3 extension with background service worker listening to <code>chrome.tabs</code> and <code>chrome.history</code>.
+          </p>
+          <ul class="text-[11px] text-zinc-400 space-y-1.5 list-disc pl-4">
+            <li><strong>Live Tab Streaming:</strong> Real-time HTTP POST & WebSocket streaming to FastAPI backend.</li>
+            <li><strong>Dwell Time Counter:</strong> Measures active focused seconds spent per tab (ignores idle background tabs).</li>
+            <li><strong>Extension Popup:</strong> Mini UI showing current domain stats and quick AI search bar.</li>
+          </ul>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="glass-card rounded-2xl p-6 space-y-4 border-l-4 border-l-violet-500 hover:border-l-violet-400 transition-all">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-violet-400 uppercase tracking-wider">v1.2 Release</span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-violet-500/20 text-violet-300 font-semibold">AI Extraction</span>
+          </div>
+          <h4 class="font-bold text-base text-white flex items-center gap-2">
+            <i data-lucide="file-text" class="w-4 h-4 text-violet-400"></i> 2. Page Content & Text Extraction
+          </h4>
+          <p class="text-xs text-zinc-300 leading-relaxed">
+            Extract full readable page text and headings (Readability API) rather than relying solely on page titles and URLs.
+          </p>
+          <ul class="text-[11px] text-zinc-400 space-y-1.5 list-disc pl-4">
+            <li><strong>Knowledge Snippets:</strong> Stores clean page body text inside vector database documents.</li>
+            <li><strong>Personal Knowledge Base:</strong> Save visited articles, research papers, and documentation into a searchable AI vault.</li>
+            <li><strong>Code Block Extractor:</strong> Automatically extracts code blocks from StackOverflow & GitHub.</li>
+          </ul>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="glass-card rounded-2xl p-6 space-y-4 border-l-4 border-l-emerald-500 hover:border-l-emerald-400 transition-all">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">v1.3 Release</span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-semibold">Categorization</span>
+          </div>
+          <h4 class="font-bold text-base text-white flex items-center gap-2">
+            <i data-lucide="tags" class="w-4 h-4 text-emerald-400"></i> 3. LLM Zero-Shot & Multi-Label Tags
+          </h4>
+          <p class="text-xs text-zinc-300 leading-relaxed">
+            Replace static domain string rules with an LLM zero-shot classification model for deep multi-label tagging.
+          </p>
+          <ul class="text-[11px] text-zinc-400 space-y-1.5 list-disc pl-4">
+            <li><strong>Hierarchical Taxonomy:</strong> Tags like <code>Tech > Backend > Python > FastAPI</code>.</li>
+            <li><strong>Multi-Category Assignment:</strong> Single sites assigned multiple relevant tags (e.g. <code>AI</code> + <code>Productivity</code>).</li>
+            <li><strong>Custom Category Rules:</strong> User-defined custom tags and domain override rules.</li>
+          </ul>
+        </div>
+
+        <!-- Pillar 4 -->
+        <div class="glass-card rounded-2xl p-6 space-y-4 border-l-4 border-l-rose-500 hover:border-l-rose-400 transition-all">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-rose-400 uppercase tracking-wider">v1.4 Release</span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 font-semibold">Productivity</span>
+          </div>
+          <h4 class="font-bold text-base text-white flex items-center gap-2">
+            <i data-lucide="target" class="w-4 h-4 text-rose-400"></i> 4. Productivity & Focus Suite
+          </h4>
+          <p class="text-xs text-zinc-300 leading-relaxed">
+            Transform raw activity data into actionable productivity scores, focus sessions, and distraction counters.
+          </p>
+          <ul class="text-[11px] text-zinc-400 space-y-1.5 list-disc pl-4">
+            <li><strong>Productivity Score Engine:</strong> Daily calculated score (0-100%) based on productive vs unproductive sites.</li>
+            <li><strong>Focus Session Mode:</strong> Pomodoro focus timer with dynamic site blocking.</li>
+            <li><strong>Distraction Nudges:</strong> Alerts when spending over 30 minutes on non-work domains.</li>
+          </ul>
+        </div>
+
+        <!-- Pillar 5 -->
+        <div class="glass-card rounded-2xl p-6 space-y-4 border-l-4 border-l-cyan-500 hover:border-l-cyan-400 transition-all">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-cyan-400 uppercase tracking-wider">v1.5 Release</span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-semibold">Cognitive AI</span>
+          </div>
+          <h4 class="font-bold text-base text-white flex items-center gap-2">
+            <i data-lucide="sparkle" class="w-4 h-4 text-cyan-400"></i> 5. Cognitive AI Assistant 2.0
+          </h4>
+          <p class="text-xs text-zinc-300 leading-relaxed">
+            Advanced conversational intelligence for temporal queries, study note generation, and session reconstruction.
+          </p>
+          <ul class="text-[11px] text-zinc-400 space-y-1.5 list-disc pl-4">
+            <li><strong>Semantic Memory Recall:</strong> "What was I reading about Docker multi-stage builds last Tuesday?"</li>
+            <li><strong>Auto Study Note Generator:</strong> Summarizes all tabs visited during a research session into structured Markdown.</li>
+            <li><strong>Topic Clustering:</strong> Groups related tabs into cohesive research projects.</li>
+          </ul>
+        </div>
+
+        <!-- Pillar 6 -->
+        <div class="glass-card rounded-2xl p-6 space-y-4 border-l-4 border-l-amber-500 hover:border-l-amber-400 transition-all">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">v2.0 Release</span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-semibold">Time-Series UI</span>
+          </div>
+          <h4 class="font-bold text-base text-white flex items-center gap-2">
+            <i data-lucide="calendar" class="w-4 h-4 text-amber-400"></i> 6. Dynamic Time-Series Analytics
+          </h4>
+          <p class="text-xs text-zinc-300 leading-relaxed">
+            Comprehensive dynamic date controls and time-series trend velocity visualization across the React dashboard.
+          </p>
+          <ul class="text-[11px] text-zinc-400 space-y-1.5 list-disc pl-4">
+            <li><strong>Global Date Range Picker:</strong> Today, Yesterday, Last 7 Days, Last 30 Days, Custom Range.</li>
+            <li><strong>Domain Velocity Trends:</strong> Tracks rising vs falling website usage over weeks.</li>
+            <li><strong>Weekly Heatmap Grid:</strong> 7-day x 24-hour activity grid heatmap.</li>
+            <li><strong>Export Reports:</strong> PDF & CSV export of productivity reports.</li>
+          </ul>
+        </div>
+
+        <!-- Pillar 7 -->
+        <div class="glass-card rounded-2xl p-6 space-y-4 border-l-4 border-l-red-500 hover:border-l-red-400 transition-all">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-red-400 uppercase tracking-wider">v2.1 Release</span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-red-500/20 text-red-300 font-semibold">Privacy</span>
+          </div>
+          <h4 class="font-bold text-base text-white flex items-center gap-2">
+            <i data-lucide="shield-check" class="w-4 h-4 text-red-400"></i> 7. 100% Offline Local AI Mode
+          </h4>
+          <p class="text-xs text-zinc-300 leading-relaxed">
+            Zero cloud data transmission guarantee using local LLMs and local vector embedding models.
+          </p>
+          <ul class="text-[11px] text-zinc-400 space-y-1.5 list-disc pl-4">
+            <li><strong>Ollama Integration:</strong> Run inference with local Llama 3.2, Qwen 2.5, or DeepSeek models.</li>
+            <li><strong>Local Sentence Transformers:</strong> Offline vector generation with zero external API dependency.</li>
+            <li><strong>DB Encryption:</strong> AES-256 local database encryption for sensitive history entries.</li>
+          </ul>
+        </div>
+
+        <!-- Pillar 8 -->
+        <div class="glass-card rounded-2xl p-6 space-y-4 border-l-4 border-l-teal-500 hover:border-l-teal-400 transition-all">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-teal-400 uppercase tracking-wider">v2.2 Release</span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-teal-500/20 text-teal-300 font-semibold">Multi-Browser</span>
+          </div>
+          <h4 class="font-bold text-base text-white flex items-center gap-2">
+            <i data-lucide="globe" class="w-4 h-4 text-teal-400"></i> 8. Multi-Browser & Device Sync
+          </h4>
+          <p class="text-xs text-zinc-300 leading-relaxed">
+            Unify browsing history across Chrome, Firefox, Edge, Brave, Arc, and mobile devices.
+          </p>
+          <ul class="text-[11px] text-zinc-400 space-y-1.5 list-disc pl-4">
+            <li><strong>Firefox Reader:</strong> Direct ingestion of Firefox <code>places.sqlite</code> database.</li>
+            <li><strong>Brave, Edge & Arc Support:</strong> Unified SQLite adaptors for Chromium variants.</li>
+            <li><strong>Encrypted P2P Sync:</strong> Cross-device local synchronization without central server storage.</li>
+          </ul>
+        </div>
+
+        <!-- Pillar 9 -->
+        <div class="glass-card rounded-2xl p-6 space-y-4 border-l-4 border-l-purple-500 hover:border-l-purple-400 transition-all">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-purple-400 uppercase tracking-wider">v2.3 Release</span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 font-semibold">Voice AI</span>
+          </div>
+          <h4 class="font-bold text-base text-white flex items-center gap-2">
+            <i data-lucide="mic" class="w-4 h-4 text-purple-400"></i> 9. Voice Commands & Assistant
+          </h4>
+          <p class="text-xs text-zinc-300 leading-relaxed">
+            Hands-free natural language voice interaction powered by OpenAI Whisper AI / Web Speech API.
+          </p>
+          <ul class="text-[11px] text-zinc-400 space-y-1.5 list-disc pl-4">
+            <li><strong>Voice Querying:</strong> "Hey BrowseTracker, find the GitHub repository I opened yesterday."</li>
+            <li><strong>Text-to-Speech Summaries:</strong> Listen to audio summaries of your daily browsing insights.</li>
+          </ul>
+        </div>
+
+        <!-- Pillar 10 -->
+        <div class="glass-card rounded-2xl p-6 space-y-4 border-l-4 border-l-orange-500 hover:border-l-orange-400 transition-all">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-orange-400 uppercase tracking-wider">v3.0 Release</span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-orange-500/20 text-orange-300 font-semibold">Integrations</span>
+          </div>
+          <h4 class="font-bold text-base text-white flex items-center gap-2">
+            <i data-lucide="code-2" class="w-4 h-4 text-orange-400"></i> 10. Developer API & Webhooks
+          </h4>
+          <p class="text-xs text-zinc-300 leading-relaxed">
+            Public REST APIs and Webhooks to connect BrowseTracker-AI with external note-taking and productivity software.
+          </p>
+          <ul class="text-[11px] text-zinc-400 space-y-1.5 list-disc pl-4">
+            <li><strong>Obsidian & Notion Sync:</strong> Automatically push daily research summaries to Notion/Obsidian vaults.</li>
+            <li><strong>Zapier & Webhooks:</strong> Trigger automated workflows when specific domains or queries are recorded.</li>
+            <li><strong>Open API Spec:</strong> Swagger / OpenAPI documentation for custom developer integrations.</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- HOW ARE WE GOING TO DO IT (EXECUTION STRATEGY) -->
+    <section id="execution" class="space-y-6">
+      <div class="flex items-center gap-3 border-b border-zinc-800 pb-4">
+        <div class="p-2 bg-blue-500/10 text-blue-400 rounded-lg">
+          <i data-lucide="compass" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <h3 class="text-2xl font-bold text-white">6. Technical Execution Strategy: How We Will Do It</h3>
+          <p class="text-xs text-zinc-400">Step-by-step implementation methodology for future developments</p>
+        </div>
+      </div>
+
+      <div class="glass-card rounded-2xl p-8 space-y-8">
+        
+        <!-- Step 1 -->
+        <div class="flex items-start gap-4">
+          <div class="w-8 h-8 rounded-full bg-indigo-600 text-white font-bold flex items-center justify-center text-sm shrink-0">1</div>
+          <div class="space-y-2">
+            <h4 class="font-bold text-white text-base">Step 1: Real-time Ingestion via Chrome Extension Webhooks</h4>
+            <p class="text-xs text-zinc-300 leading-relaxed">
+              We will develop a Manifest v3 Chrome Extension with a <code>background.js</code> service worker monitoring <code>chrome.history.onVisited</code> and <code>chrome.tabs.onUpdated</code> events. The extension will send live JSON payloads to a newly created FastAPI endpoint <code>POST /api/history/stream</code>.
+            </p>
+            <div class="bg-zinc-900 p-3 rounded-lg font-mono text-[11px] text-zinc-400">
+              Payload: { "title": str, "url": str, "domain": str, "visit_time": ISOString, "dwell_seconds": int }
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="flex items-start gap-4">
+          <div class="w-8 h-8 rounded-full bg-violet-600 text-white font-bold flex items-center justify-center text-sm shrink-0">2</div>
+          <div class="space-y-2">
+            <h4 class="font-bold text-white text-base">Step 2: Automated Vector Store Delta Syncing</h4>
+            <p class="text-xs text-zinc-300 leading-relaxed">
+              Instead of running full batch synchronization with <code>sync_vector.py</code>, we will implement an asynchronous background worker using FastAPI's <code>BackgroundTasks</code> or Celery. Upon receiving a new history record, it will immediately embed and add the single vector into ChromaDB in real-time.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="flex items-start gap-4">
+          <div class="w-8 h-8 rounded-full bg-emerald-600 text-white font-bold flex items-center justify-center text-sm shrink-0">3</div>
+          <div class="space-y-2">
+            <h4 class="font-bold text-white text-base">Step 3: Productivity & Email Digest Engine</h4>
+            <p class="text-xs text-zinc-300 leading-relaxed">
+              We will add a background scheduler (APScheduler) running every Sunday at 8 PM. It will aggregate weekly visit counts, generate an AI summary of research topics via Gemini, build a responsive HTML email template, and dispatch it via SMTP or Resend/SendGrid API.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="flex items-start gap-4">
+          <div class="w-8 h-8 rounded-full bg-pink-600 text-white font-bold flex items-center justify-center text-sm shrink-0">4</div>
+          <div class="space-y-2">
+            <h4 class="font-bold text-white text-base">Step 4: Frontend Time-Series & Interactive Controls</h4>
+            <p class="text-xs text-zinc-300 leading-relaxed">
+              We will update <code>AnalyticsPage.jsx</code> to pass a selected date range parameter (<code>?start_date=...&end_date=...</code>) to all backend endpoints, updating SQL aggregate functions accordingly to render responsive temporal comparisons.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-zinc-800 pt-8 text-center text-xs text-zinc-500 space-y-2">
+      <p>BrowseTracker-AI System Documentation & Complete Future Features Manual</p>
+      <p class="text-[11px] text-zinc-600">Generated for user analysis & project roadmap visualization • 2026</p>
+    </footer>
+
+  </main>
+
+  <script>
+    // Initialize Mermaid diagrams
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'dark',
+      themeVariables: {
+        darkMode: true,
+        background: 'transparent',
+        primaryColor: '#6366f1',
+        primaryTextColor: '#fff',
+        primaryBorderColor: '#4f46e5',
+        lineColor: '#818cf8',
+        secondaryColor: '#a855f7',
+        tertiaryColor: '#10b981'
+      }
+    });
+    // Initialize Lucide icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>
